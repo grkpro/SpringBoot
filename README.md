@@ -5,5 +5,9 @@ Spring Boot application with all employ operations
 ## Technologies
 - Java 8
 - Spring Boot
+- Spring
+  - Rest Controller
+  - Global Exception Handling
 - Derby DB
 - JPA
+- Postman json file
