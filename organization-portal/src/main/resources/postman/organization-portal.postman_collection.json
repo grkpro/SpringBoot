@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "ca146234-0643-4dcc-872a-ae43ead523c6",
+		"name": "organization-portal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Employs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/employ/get",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employ",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employ by Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/employ/get",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employ",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Employ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"1\",\r\n    \"name\":\"Ravi\",\r\n    \"Salary\":\"50000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/employ/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employ",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Employs as Bulk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"1\",\r\n        \"name\": \"Ravi\",\r\n        \"salary\": \"50000\"\r\n    },\r\n    {\r\n        \"id\": \"2\",\r\n        \"name\": \"Kumar\",\r\n        \"salary\": \"45222\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/employ/addBulk",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employ",
+						"addBulk"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
