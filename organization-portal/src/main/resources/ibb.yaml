@@ -1,0 +1,658 @@
+openapi: 3.1.0
+info:
+  title: IBBEvent
+  version: '1.0'
+  summary: IBB Inventory Events
+  description: ''
+servers:
+  - url: 'https://api.dev.dice-tools.com/ibb_v1'
+    description: api.dev.dice-tools
+paths:
+  /event:
+    post:
+      summary: ''
+      operationId: post-event
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                eventDate:
+                  type: string
+                  minLength: 1
+                sourceSystem:
+                  type: string
+                  minLength: 1
+                inventoryType:
+                  type: string
+                  minLength: 1
+                inventoryCondition:
+                  type: string
+                  minLength: 1
+                model:
+                  type: string
+                  minLength: 1
+                family:
+                  type: string
+                  minLength: 1
+                partNumber:
+                  type: string
+                  minLength: 1
+                shipToParty:
+                  type: object
+                  properties:
+                    passportId:
+                      type: string
+                      minLength: 1
+                    address:
+                      type: object
+                      properties:
+                        mdmId:
+                          type: string
+                        nameLine1:
+                          type: string
+                          minLength: 1
+                        addressLine1:
+                          type: string
+                          minLength: 1
+                        addressLine2:
+                          type: string
+                        city:
+                          type: string
+                          minLength: 1
+                        state:
+                          type: string
+                        postalCode:
+                          type: string
+                          minLength: 1
+                        country:
+                          type: string
+                          minLength: 1
+                      required:
+                        - mdmId
+                        - nameLine1
+                        - addressLine1
+                        - addressLine2
+                        - city
+                        - state
+                        - postalCode
+                        - country
+                  required:
+                    - passportId
+                    - address
+                billToParty:
+                  type: object
+                  properties:
+                    passportId:
+                      type: string
+                      minLength: 1
+                    address:
+                      type: object
+                      properties:
+                        mdmId:
+                          type: string
+                        nameLine1:
+                          type: string
+                          minLength: 1
+                        addressLine1:
+                          type: string
+                          minLength: 1
+                        addressLine2:
+                          type: string
+                        city:
+                          type: string
+                          minLength: 1
+                        state:
+                          type: string
+                          minLength: 1
+                        postalCode:
+                          type: string
+                          minLength: 1
+                        country:
+                          type: string
+                          minLength: 1
+                      required:
+                        - mdmId
+                        - nameLine1
+                        - addressLine1
+                        - addressLine2
+                        - city
+                        - state
+                        - postalCode
+                        - country
+                  required:
+                    - passportId
+                    - address
+                servicingDealerId:
+                  type: string
+                  minLength: 1
+                customerAccountId:
+                  type: string
+                salesOrderNumber:
+                  type: string
+                  minLength: 1
+                salesOrderDate:
+                  type: string
+                  minLength: 1
+                salesOrderLineId:
+                  type: string
+                  minLength: 1
+                salesOrderType:
+                  type: string
+                  minLength: 1
+                invoiceNumber:
+                  type: string
+                  minLength: 1
+                invoiceDate:
+                  type: string
+                  minLength: 1
+                shipmentDate:
+                  type: string
+                  minLength: 1
+                buildDate:
+                  type: string
+                  minLength: 1
+                manufacturingPlantId:
+                  type: string
+                  minLength: 1
+                shipFromLocation:
+                  type: string
+                  minLength: 1
+                components:
+                  type: array
+                  items:
+                    required: []
+                    properties: {}
+                options:
+                  type: array
+                  uniqueItems: true
+                  minItems: 1
+                  items:
+                    required:
+                      - optionCode
+                      - optionDescription
+                    properties:
+                      optionCode:
+                        type: string
+                        minLength: 1
+                      optionDescription:
+                        type: string
+                        minLength: 1
+                eventType:
+                  type: string
+                  minLength: 1
+                id:
+                  type: string
+                  minLength: 1
+                manufacturer:
+                  type: string
+                  minLength: 1
+                serialNumber:
+                  type: string
+                  minLength: 1
+                businessUnit:
+                  type: string
+                  minLength: 1
+              required:
+                - eventDate
+                - sourceSystem
+                - inventoryType
+                - inventoryCondition
+                - model
+                - family
+                - partNumber
+                - shipToParty
+                - billToParty
+                - servicingDealerId
+                - customerAccountId
+                - salesOrderNumber
+                - salesOrderDate
+                - salesOrderLineId
+                - salesOrderType
+                - invoiceNumber
+                - invoiceDate
+                - shipmentDate
+                - buildDate
+                - manufacturingPlantId
+                - shipFromLocation
+                - components
+                - options
+                - eventType
+                - id
+                - manufacturer
+                - serialNumber
+                - businessUnit
+              x-examples:
+                example-1:
+                  eventDate: '2021-02-09T09:51:53.722Z'
+                  sourceSystem: TWMS_IRW
+                  inventoryType: DEALER
+                  inventoryCondition: NEW
+                  model: R60 POWER
+                  family: BOBCAT LIGHT COMPACTION
+                  partNumber: M1102
+                  shipToParty:
+                    passportId: '82077'
+                    address:
+                      mdmId: ''
+                      nameLine1: GRAF & RISS BAUMASCHINEN GMBH-137169
+                      addressLine1: Kartonstrasse 8
+                      addressLine2: ''
+                      city: Baienfurt
+                      state: ''
+                      postalCode: '88255'
+                      country: DE
+                  billToParty:
+                    passportId: '57765'
+                    address:
+                      mdmId: ''
+                      nameLine1: GRAF & RISS BAUMASCHINEN GMBH-137169
+                      addressLine1: Kartonstrasse 8
+                      addressLine2: ''
+                      city: Baienfurt
+                      state: Baden Württemberg
+                      postalCode: '88255'
+                      country: DE
+                  servicingDealerId: '82077'
+                  customerAccountId: ''
+                  salesOrderNumber: '15109967'
+                  salesOrderDate: '1990-01-01'
+                  salesOrderLineId: '66374397'
+                  salesOrderType: STOCK
+                  invoiceNumber: '4300000439'
+                  invoiceDate: '2021-01-18'
+                  shipmentDate: '2021-01-18'
+                  buildDate: '2021-01-05'
+                  manufacturingPlantId: '0000000'
+                  shipFromLocation: US
+                  components: []
+                  options:
+                    - optionCode: M1102-R09-C03
+                      optionDescription: Foot 280mm
+                  eventType: FIELD_INVENTORY_NEW
+                  id: '1612864313722'
+                  manufacturer: BOBCAT
+                  serialNumber: B584*3001745
+                  businessUnit: EMEA
+            examples:
+              example-1:
+                value:
+                  eventDate: '2021-02-09T09:51:53.722Z'
+                  sourceSystem: TWMS_IRW
+                  inventoryType: DEALER
+                  inventoryCondition: NEW
+                  model: R60 POWER
+                  family: BOBCAT LIGHT COMPACTION
+                  partNumber: M1102
+                  shipToParty:
+                    passportId: '82077'
+                    address:
+                      mdmId: ''
+                      nameLine1: GRAF & RISS BAUMASCHINEN GMBH-137169
+                      addressLine1: Kartonstrasse 8
+                      addressLine2: ''
+                      city: Baienfurt
+                      state: ''
+                      postalCode: '88255'
+                      country: DE
+                  billToParty:
+                    passportId: '57765'
+                    address:
+                      mdmId: ''
+                      nameLine1: GRAF & RISS BAUMASCHINEN GMBH-137169
+                      addressLine1: Kartonstrasse 8
+                      addressLine2: ''
+                      city: Baienfurt
+                      state: Baden Württemberg
+                      postalCode: '88255'
+                      country: DE
+                  servicingDealerId: '82077'
+                  customerAccountId: ''
+                  salesOrderNumber: '15109967'
+                  salesOrderDate: '1990-01-01'
+                  salesOrderLineId: '66374397'
+                  salesOrderType: STOCK
+                  invoiceNumber: '4300000439'
+                  invoiceDate: '2021-01-18'
+                  shipmentDate: '2021-01-18'
+                  buildDate: '2021-01-05'
+                  manufacturingPlantId: '0000000'
+                  shipFromLocation: US
+                  components: []
+                  options:
+                    - optionCode: M1102-R09-C03
+                      optionDescription: Foot 280mm
+                  eventType: FIELD_INVENTORY_NEW
+                  id: '1612864313722'
+                  manufacturer: BOBCAT
+                  serialNumber: B584*3001745
+                  businessUnit: EMEA
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+      security:
+        - X-Api-Key: []
+components:
+  schemas:
+    fieldInventoryModel:
+      description: ''
+      type: object
+      properties:
+        eventDate:
+          type: string
+          minLength: 1
+        sourceSystem:
+          type: string
+          minLength: 1
+        inventoryType:
+          type: string
+          minLength: 1
+        inventoryCondition:
+          type: string
+          minLength: 1
+        model:
+          type: string
+          minLength: 1
+        family:
+          type: string
+          minLength: 1
+        partNumber:
+          type: string
+          minLength: 1
+        shipToParty:
+          type: object
+          properties:
+            passportId:
+              type: string
+              minLength: 1
+            address:
+              type: object
+              properties:
+                mdmId:
+                  type: string
+                nameLine1:
+                  type: string
+                  minLength: 1
+                addressLine1:
+                  type: string
+                  minLength: 1
+                addressLine2:
+                  type: string
+                city:
+                  type: string
+                  minLength: 1
+                state:
+                  type: string
+                postalCode:
+                  type: string
+                  minLength: 1
+                country:
+                  type: string
+                  minLength: 1
+              required:
+                - mdmId
+                - nameLine1
+                - addressLine1
+                - addressLine2
+                - city
+                - state
+                - postalCode
+                - country
+          required:
+            - passportId
+            - address
+        billToParty:
+          type: object
+          properties:
+            passportId:
+              type: string
+              minLength: 1
+            address:
+              type: object
+              properties:
+                mdmId:
+                  type: string
+                nameLine1:
+                  type: string
+                  minLength: 1
+                addressLine1:
+                  type: string
+                  minLength: 1
+                addressLine2:
+                  type: string
+                city:
+                  type: string
+                  minLength: 1
+                state:
+                  type: string
+                  minLength: 1
+                postalCode:
+                  type: string
+                  minLength: 1
+                country:
+                  type: string
+                  minLength: 1
+              required:
+                - mdmId
+                - nameLine1
+                - addressLine1
+                - addressLine2
+                - city
+                - state
+                - postalCode
+                - country
+          required:
+            - passportId
+            - address
+        servicingDealerId:
+          type: string
+          minLength: 1
+        customerAccountId:
+          type: string
+        salesOrderNumber:
+          type: string
+          minLength: 1
+        salesOrderDate:
+          type: string
+          minLength: 1
+        salesOrderLineId:
+          type: string
+          minLength: 1
+        salesOrderType:
+          type: string
+          minLength: 1
+        invoiceNumber:
+          type: string
+          minLength: 1
+        invoiceDate:
+          type: string
+          minLength: 1
+        shipmentDate:
+          type: string
+          minLength: 1
+        buildDate:
+          type: string
+          minLength: 1
+        manufacturingPlantId:
+          type: string
+          minLength: 1
+        shipFromLocation:
+          type: string
+          minLength: 1
+        components:
+          type: array
+          items:
+            required: []
+            properties: {}
+        options:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+              - optionCode
+              - optionDescription
+            properties:
+              optionCode:
+                type: string
+                minLength: 1
+              optionDescription:
+                type: string
+                minLength: 1
+        eventType:
+          type: string
+          minLength: 1
+        id:
+          type: string
+          minLength: 1
+        manufacturer:
+          type: string
+          minLength: 1
+        serialNumber:
+          type: string
+          minLength: 1
+        businessUnit:
+          type: string
+          minLength: 1
+      required:
+        - eventDate
+        - sourceSystem
+        - inventoryType
+        - inventoryCondition
+        - model
+        - family
+        - partNumber
+        - shipToParty
+        - billToParty
+        - servicingDealerId
+        - customerAccountId
+        - salesOrderNumber
+        - salesOrderDate
+        - salesOrderLineId
+        - salesOrderType
+        - invoiceNumber
+        - invoiceDate
+        - shipmentDate
+        - buildDate
+        - manufacturingPlantId
+        - shipFromLocation
+        - components
+        - options
+        - eventType
+        - id
+        - manufacturer
+        - serialNumber
+        - businessUnit
+      x-examples:
+        example-1:
+          eventDate: '2021-02-09T09:51:53.722Z'
+          sourceSystem: TWMS_IRW
+          inventoryType: DEALER
+          inventoryCondition: NEW
+          model: R60 POWER
+          family: BOBCAT LIGHT COMPACTION
+          partNumber: M1102
+          shipToParty:
+            passportId: '82077'
+            address:
+              mdmId: ''
+              nameLine1: GRAF & RISS BAUMASCHINEN GMBH-137169
+              addressLine1: Kartonstrasse 8
+              addressLine2: ''
+              city: Baienfurt
+              state: ''
+              postalCode: '88255'
+              country: DE
+          billToParty:
+            passportId: '57765'
+            address:
+              mdmId: ''
+              nameLine1: GRAF & RISS BAUMASCHINEN GMBH-137169
+              addressLine1: Kartonstrasse 8
+              addressLine2: ''
+              city: Baienfurt
+              state: Baden Württemberg
+              postalCode: '88255'
+              country: DE
+          servicingDealerId: '82077'
+          customerAccountId: ''
+          salesOrderNumber: '15109967'
+          salesOrderDate: '1990-01-01'
+          salesOrderLineId: '66374397'
+          salesOrderType: STOCK
+          invoiceNumber: '4300000439'
+          invoiceDate: '2021-01-18'
+          shipmentDate: '2021-01-18'
+          buildDate: '2021-01-05'
+          manufacturingPlantId: '0000000'
+          shipFromLocation: US
+          components: []
+          options:
+            - optionCode: M1102-R09-C03
+              optionDescription: Foot 280mm
+          eventType: FIELD_INVENTORY_NEW
+          id: '1612864313722'
+          manufacturer: BOBCAT
+          serialNumber: B584*3001745
+          businessUnit: EMEA
+      examples:
+        - eventDate: string
+          sourceSystem: string
+          inventoryType: string
+          inventoryCondition: string
+          model: string
+          family: string
+          partNumber: string
+          shipToParty:
+            passportId: string
+            address:
+              mdmId: string
+              nameLine1: string
+              addressLine1: string
+              addressLine2: string
+              city: string
+              state: string
+              postalCode: string
+              country: string
+          billToParty:
+            passportId: string
+            address:
+              mdmId: string
+              nameLine1: string
+              addressLine1: string
+              addressLine2: string
+              city: string
+              state: string
+              postalCode: string
+              country: string
+          servicingDealerId: string
+          customerAccountId: string
+          salesOrderNumber: string
+          salesOrderDate: string
+          salesOrderLineId: string
+          salesOrderType: string
+          invoiceNumber: string
+          invoiceDate: string
+          shipmentDate: string
+          buildDate: string
+          manufacturingPlantId: string
+          shipFromLocation: string
+          components:
+            - {}
+          options:
+            - optionCode: string
+              optionDescription: string
+          eventType: string
+          id: string
+          manufacturer: string
+          serialNumber: string
+          businessUnit: string
+  securitySchemes:
+    X-Api-Key:
+      name: X-Api-Key
+      type: apiKey
+      in: header
